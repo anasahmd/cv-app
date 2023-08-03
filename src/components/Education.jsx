@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import '../styles/Education.css';
 import Card from './Card';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { v4 as uuid } from 'uuid';
 
 const EducationList = ({ education, handleEducationEdit }) => {
 	return (
@@ -131,17 +132,35 @@ const Education = ({ education, setEducation }) => {
 	};
 
 	const handleCancel = () => {
-		setEditEducation(education);
 		setEditItem(false);
 	};
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-
-		setEducation((education) =>
-			education.map((value) => (value.id == e.target.value ? editItem : value))
-		);
+		let data = education.filter((value) => value.id == e.target.value);
+		if (data.length) {
+			setEducation((education) =>
+				education.map((value) =>
+					value.id == e.target.value ? editItem : value
+				)
+			);
+		} else {
+			console.log('hello');
+			setEducation((education) => [...education, editItem]);
+		}
 		setEditItem(false);
+	};
+
+	const handleNewEducation = () => {
+		setEditItem({
+			id: uuid(),
+			school: '',
+			degree: '',
+			city: '',
+			country: '',
+			start: '',
+			end: '',
+		});
 	};
 
 	return (
@@ -156,10 +175,20 @@ const Education = ({ education, setEducation }) => {
 						handleSubmit={handleSubmit}
 					/>
 				) : (
-					<EducationList
-						education={education}
-						handleEducationEdit={handleEducationEdit}
-					/>
+					<>
+						<EducationList
+							education={education}
+							handleEducationEdit={handleEducationEdit}
+						/>
+						<button
+							type="button "
+							className="add-btn"
+							onClick={handleNewEducation}
+						>
+							<FontAwesomeIcon icon={faPlus} />
+							<b>Education</b>
+						</button>
+					</>
 				)}
 			</Card>
 		</div>
