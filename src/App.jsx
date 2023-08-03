@@ -4,23 +4,12 @@ import { useState } from 'react';
 import Education from './components/Education';
 
 function App() {
-	const [basicInfo, setBasicInfo] = useState({
-		fullName: 'Anas Ahmad',
-		jobTitle: '',
-		email: '',
-		phone: '',
-		address: '',
-	});
 	const [education, setEducation] = useState([]);
+
 	return (
 		<main id="main-container">
-			<BasicInfo
-				basicInfo={basicInfo}
-				onInputChange={(data) => {
-					setBasicInfo({ ...basicInfo, ...data });
-				}}
-			/>
-			<Education />
+			<BasicInfo />
+			<Education education={education} />
 		</main>
 	);
 }
