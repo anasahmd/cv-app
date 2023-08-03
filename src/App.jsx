@@ -32,7 +32,7 @@ function App() {
 		<main id="main-container">
 			<div className="info-section">
 				<BasicInfo basicInfo={basicInfo} setBasicInfo={setBasicInfo} />
-				<Education education={education} />
+				<Education education={education} setEducation={setEducation} />
 			</div>
 		</main>
 	);
