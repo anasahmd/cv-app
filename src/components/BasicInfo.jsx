@@ -9,23 +9,23 @@ import {
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { useState } from 'react';
 
-const BasicInfo = () => {
-	const [basicInfo, setBasicInfo] = useState({
-		fullName: '',
-		jobTitle: '',
-		email: '',
-		phone: '',
-		address: '',
-	});
+const BasicInfo = ({ basicInfo, setBasicInfo }) => {
+	const [editedBasicInfo, setEditedBasicData] = useState(basicInfo);
 	const [isEditing, setIsEditing] = useState(false);
 
 	const handleEdit = () => {
-		setIsEditing(isEditing ? false : true);
+		setIsEditing(true);
+	};
+
+	const handleCancel = () => {
+		setIsEditing(false);
+		setEditedBasicData(basicInfo);
 	};
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(basicInfo);
+		setBasicInfo(editedBasicInfo);
+		setIsEditing(false);
 	};
 	return (
 		<div className="basic-info">
@@ -39,9 +39,12 @@ const BasicInfo = () => {
 								<input
 									type="text"
 									id="full-name"
-									value={basicInfo.fullName}
+									value={editedBasicInfo.fullName}
 									onChange={(e) => {
-										setBasicInfo({ ...basicInfo, fullName: e.target.value });
+										setEditedBasicData({
+											...editedBasicInfo,
+											fullName: e.target.value,
+										});
 									}}
 								/>
 							</div>
@@ -50,9 +53,12 @@ const BasicInfo = () => {
 								<input
 									type="text"
 									id="full-name"
-									value={basicInfo.jobTitle}
+									value={editedBasicInfo.jobTitle}
 									onChange={(e) => {
-										setBasicInfo({ ...basicInfo, jobTitle: e.target.value });
+										setEditedBasicData({
+											...editedBasicInfo,
+											jobTitle: e.target.value,
+										});
 									}}
 								/>
 							</div>
@@ -61,9 +67,12 @@ const BasicInfo = () => {
 								<input
 									type="text"
 									id="email"
-									value={basicInfo.email}
+									value={editedBasicInfo.email}
 									onChange={(e) => {
-										setBasicInfo({ ...basicInfo, email: e.target.value });
+										setEditedBasicData({
+											...editedBasicInfo,
+											email: e.target.value,
+										});
 									}}
 								/>
 							</div>
@@ -72,9 +81,12 @@ const BasicInfo = () => {
 								<input
 									type="text"
 									id="phone"
-									value={basicInfo.phone}
+									value={editedBasicInfo.phone}
 									onChange={(e) => {
-										setBasicInfo({ ...basicInfo, phone: e.target.value });
+										setEditedBasicData({
+											...editedBasicInfo,
+											phone: e.target.value,
+										});
 									}}
 								/>
 							</div>
@@ -83,14 +95,17 @@ const BasicInfo = () => {
 								<input
 									type="text"
 									id="address"
-									value={basicInfo.address}
+									value={editedBasicInfo.address}
 									onChange={(e) => {
-										setBasicInfo({ ...basicInfo, address: e.target.value });
+										setEditedBasicData({
+											...editedBasicInfo,
+											address: e.target.value,
+										});
 									}}
 								/>
 							</div>
 							<div className="form-input form-btn">
-								<button type="button" onClick={handleEdit} className="cancel">
+								<button type="button" onClick={handleCancel} className="cancel">
 									Cancel
 								</button>
 								<button
