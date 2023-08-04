@@ -2,7 +2,14 @@
 	margin-top: 1.5rem;
 	display: flex;
 	flex-direction: column;
-	gap: 1.5rem;
+	border-top: 2px solid #eef0f4;
+}
+
+.education-list-item {
+	cursor: pointer;
+	border-bottom: 2px solid #eef0f4;
+	padding: 1.25rem 0;
+	height: 80px;
 }
 
 .education-info {
