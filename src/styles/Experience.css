@@ -1,0 +1,17 @@
+.experience-list {
+	margin-top: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	border-top: 2px solid #eef0f4;
+}
+
+.experience-list-item {
+	cursor: pointer;
+	border-bottom: 2px solid #eef0f4;
+	padding: 1.25rem 0;
+	height: 80px;
+}
+
+.experience-info {
+	color: #424242;
+}
