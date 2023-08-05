@@ -1,0 +1,52 @@
+.cv-view {
+	width: 100%;
+	aspect-ratio: 8.5 / 11;
+	background: #fff;
+}
+
+.cv-basic {
+	background-color: #373737;
+	padding: 2rem;
+	color: #fff;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.cv-education {
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1.75rem;
+}
+
+.cv-experience {
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1.75rem;
+}
+
+.cv-heading {
+	width: fit-content;
+	font-size: 1.25rem;
+	font-weight: 600;
+	padding-bottom: 0.5rem;
+	border-bottom: 3px solid #373737;
+}
+
+.cv-education-item {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.with-icon {
+	display: flex;
+	gap: 0.5rem;
+	align-items: center;
+}
+
+.cv-view > h2 {
+	font-size: 1.5rem;
+}

@@ -4,8 +4,16 @@ import { useState } from 'react';
 import Education from './components/Education';
 import { v4 as uuid } from 'uuid';
 import Experience from './components/Experience';
+import Cv from './components/Cv';
 
 function App() {
+	const sampleBasicInfo = {
+		fullName: 'Anas Ahmad',
+		jobTitle: 'Web Developer',
+		email: 'anasahmad0239@gmail.com',
+		phone: '+916203245463',
+		address: 'Purnea, Bihar',
+	};
 	const sampleEducation = [
 		{
 			id: uuid(),
@@ -44,7 +52,7 @@ function App() {
 			description: 'Good place',
 		},
 	];
-	const [basicInfo, setBasicInfo] = useState({});
+	const [basicInfo, setBasicInfo] = useState(sampleBasicInfo);
 	const [education, setEducation] = useState(sampleEducation);
 	const [experience, setExperience] = useState(sampleExperience);
 
@@ -54,6 +62,13 @@ function App() {
 				<BasicInfo basicInfo={basicInfo} setBasicInfo={setBasicInfo} />
 				<Education education={education} setEducation={setEducation} />
 				<Experience experience={experience} setExperience={setExperience} />
+			</div>
+			<div className="cv-section">
+				<Cv
+					basicInfo={basicInfo}
+					education={education}
+					experience={experience}
+				/>
 			</div>
 		</main>
 	);
