@@ -17,7 +17,7 @@ body {
 	flex-direction: column;
 	gap: 2rem;
 	justify-content: space-around;
-	margin: 3rem 2rem;
+	margin: 3rem 1rem;
 }
 
 @media only screen and (min-width: 1000px) {
@@ -147,6 +147,12 @@ button {
 	gap: 0.5rem;
 }
 
+@media only screen and (max-width: 450px) {
+	.form-btn .delete > b {
+		display: none;
+	}
+}
+
 .add-btn {
 	background-color: #fff;
 	border: 2px solid #9ca3af;
@@ -157,4 +163,12 @@ button {
 	display: flex;
 	gap: 0.5rem;
 	font-size: 1rem;
+}
+
+footer {
+	background-color: white;
+	padding: 3rem 0;
+	display: flex;
+	justify-content: center;
+	gap: 0.5rem;
 }

@@ -48,20 +48,25 @@ function App() {
 	const [experience, setExperience] = useState(sampleExperience);
 
 	return (
-		<main id="main-container">
-			<div className="info-section">
-				<BasicInfo basicInfo={basicInfo} setBasicInfo={setBasicInfo} />
-				<Education education={education} setEducation={setEducation} />
-				<Experience experience={experience} setExperience={setExperience} />
-			</div>
-			<div className="cv-section">
-				<Cv
-					basicInfo={basicInfo}
-					education={education}
-					experience={experience}
-				/>
-			</div>
-		</main>
+		<>
+			<main id="main-container">
+				<div className="info-section">
+					<BasicInfo basicInfo={basicInfo} setBasicInfo={setBasicInfo} />
+					<Education education={education} setEducation={setEducation} />
+					<Experience experience={experience} setExperience={setExperience} />
+				</div>
+				<div className="cv-section">
+					<Cv
+						basicInfo={basicInfo}
+						education={education}
+						experience={experience}
+					/>
+				</div>
+			</main>
+			<footer>
+				Created by <a href="http://anasahmad.dev"> Anas Ahmad</a>
+			</footer>
+		</>
 	);
 }
 

@@ -57,67 +57,71 @@ const Cv = ({ basicInfo, education, experience }) => {
 						)}
 					</div>
 				</div>
-				<div className="cv-education">
-					<div className="cv-heading">Education</div>
-					{education.map((value) => (
-						<div
-							key={value.id}
-							className="cv-item"
-							onClick={() => handleEducationEdit(value)}
-						>
-							{value.school && (
-								<>
-									<div className="cv-title">
-										<b>{value.school}</b>
-										{value.degree && `, ${value.degree}`}
-									</div>
+				{education.length !== 0 && (
+					<div className="cv-education">
+						<div className="cv-heading">Education</div>
+						{education.map((value) => (
+							<div
+								key={value.id}
+								className="cv-item"
+								onClick={() => handleEducationEdit(value)}
+							>
+								{value.school && (
+									<>
+										<div className="cv-title">
+											<b>{value.school}</b>
+											{value.degree && `, ${value.degree}`}
+										</div>
 
-									<div className="cv-info">
-										{value.start && value.end && (
-											<>
-												{value.start} - {value.end}
-											</>
-										)}
-										{value.start && value.end && value.location && <> | </>}
-										{value.location && <>{value.location}</>}
-									</div>
-								</>
-							)}
-						</div>
-					))}
-				</div>
-				<div className="cv-experience">
-					<div className="cv-heading">Experience</div>
-					{experience.map((value) => (
-						<div
-							key={value.id}
-							className="cv-item"
-							onClick={() => handleExperienceEdit(value)}
-						>
-							{value.company && (
-								<>
-									<div className="experience-position">
-										<b>{value.company}</b>
-										{value.position && `, ${value.position}`}
-									</div>
+										<div className="cv-info">
+											{value.start && value.end && (
+												<>
+													{value.start} - {value.end}
+												</>
+											)}
+											{value.start && value.end && value.location && <> | </>}
+											{value.location && <>{value.location}</>}
+										</div>
+									</>
+								)}
+							</div>
+						))}
+					</div>
+				)}
+				{experience.length !== 0 && (
+					<div className="cv-experience">
+						<div className="cv-heading">Experience</div>
+						{experience.map((value) => (
+							<div
+								key={value.id}
+								className="cv-item"
+								onClick={() => handleExperienceEdit(value)}
+							>
+								{value.company && (
+									<>
+										<div className="experience-position">
+											<b>{value.company}</b>
+											{value.position && `, ${value.position}`}
+										</div>
 
-									<div className="cv-info">
-										{value.start && value.end && (
-											<>
-												{value.start} - {value.end}
-											</>
-										)}
-										{value.start && value.end && value.location && <> | </>}
-										{value.location && <>{value.location}</>}
-									</div>
-									<div className="cv-description">
-										{value.description && <>{value.description}</>}
-									</div>
-								</>
-							)}
-						</div>
-					))}
-				</div>
+										<div className="cv-info">
+											{value.start && value.end && (
+												<>
+													{value.start} - {value.end}
+												</>
+											)}
+											{value.start && value.end && value.location && <> | </>}
+											{value.location && <>{value.location}</>}
+										</div>
+										<div className="cv-description">
+											{value.description && <>{value.description}</>}
+										</div>
+									</>
+								)}
+							</div>
+						))}
+					</div>
+				)}
 			</div>
 		</div>
 	);
