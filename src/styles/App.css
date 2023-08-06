@@ -14,19 +14,34 @@ body {
 
 #main-container {
 	display: flex;
+	flex-direction: column;
+	gap: 2rem;
 	justify-content: space-around;
 	margin: 3rem 2rem;
 }
 
+@media only screen and (min-width: 1000px) {
+	#main-container {
+		flex-direction: row;
+	}
+
+	.info-section {
+		width: 40%;
+	}
+	.cv-section {
+		width: 50%;
+	}
+}
+
 .info-section {
-	width: 40%;
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
 }
 
 .cv-section {
-	width: 50%;
+	width: 100%;
 }
 
 .text-muted {
